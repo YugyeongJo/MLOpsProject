@@ -1,0 +1,13 @@
+fastapi==0.68.0
+uvicorn==0.15.0
+python-multipart
+torch>=1.7.0
+torchvision>=0.8.1
+pillow>=7.1.2
+numpy>=1.18.5
+pydantic
+opencv-python>=4.1.2
+PyYAML>=5.3.1
+requests>=2.23.0
+pandas>=1.1.4
+tqdm>=4.64.0

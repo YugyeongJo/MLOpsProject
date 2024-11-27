@@ -1,0 +1,117 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/app:/app  
+      - /app/node_modules 
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend/app:/app
+    ports:
+      - "8000:8000"
+    networks:
+      - app_network
+    environment:
+      - CHATBOT_URL=http://chatbot:8000
+    depends_on:
+      - skin_type
+      - skin_flushing
+      - skin_wrinkle
+      - skin_defect
+      - skin_advice
+      - chatbot
+
+  skin_type:          
+    build: ./skin_type
+    volumes:
+      - ./skin_type/app:/app
+      - ./skin_type/app/model:/app/model  
+    networks:
+      - app_network
+    ports:
+      - "8001:8000"
+
+  skin_flushing:     
+    build: ./skin_flushing
+    volumes:
+      - ./skin_flushing/app:/app
+      - ./skin_flushing/app/model:/app/model
+    networks:
+      - app_network
+    ports:
+      - "8002:8000"
+
+  skin_wrinkle:        
+    build: ./skin_wrinkle
+    volumes:
+      - ./skin_wrinkle/app:/app
+      - ./skin_wrinkle/app/model:/app/model
+    networks:
+      - app_network
+    ports:
+      - "8003:8000"
+
+  skin_pores:        
+    build: ./skin_pores
+    volumes:
+      - ./skin_pores/app:/app
+      - ./skin_pores/app/model:/app/model
+    networks:
+      - app_network
+    ports:
+      - "8004:8000"
+
+
+  skin_defect:        
+    build: ./skin_defect
+    volumes:
+      # - ./skin_defect/app:/app
+      - ./skin_defect/app/model:/app/model
+    networks:
+      - app_network
+    ports:
+      - "8005:8000"
+    restart: always
+
+  
+  skin_advice:        
+    build: ./skin_advice
+    volumes:
+      - ./skin_advice/app:/app
+    networks:
+      - app_network
+    ports:
+      - "8006:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    restart: always
+
+  chatbot:       
+    build: ./chatbot
+    volumes:
+      - ./chatbot/app:/app
+      - ./chatbot/app/data:/app/data   
+    ports:
+      - "8007:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    networks:
+      - app_network 
+    restart: always
+
+networks:
+  app_network:
+    driver: bridge

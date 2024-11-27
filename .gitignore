@@ -1,0 +1,9 @@
+.env
+node_modules/
+*.h5
+*.pth
+*.pt
+*.pkl
+*.bin
+model/
+models/
