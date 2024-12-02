@@ -143,18 +143,18 @@ AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 
 
 ### 7. Trouble_Shooting(트러블슈팅)
-모델 충돌 방지
--문제 상황: 7개의 모델 동시 작동시 충돌 발생 위험
--해결 방법: 각각의 모델을 Docker Container로 패키징하여 독립적 운영
--피부 분석 모델들 (Skin Type, Flushing, Pores, Wrinkles)
--피부 결함 탐지 모델 (Skin Defect)
--LLM 기반 모델들 (Summary, Chatbot)
-제한된 일정 & 리소스 최적화
--문제 상황: 두 모델간 성능 평가 지표의 불일치
--해결 방법: 제한 시간으로 인해 동일 모델 간 비교로 방향성 수정
--Faster RCNN 대신 YOLOv5 버전들(YOLOv5s, YOLOv5l, YOLOv5m) 간의 성능 비교 진행
--최적의 모델 선정을 위한 효율적인 의사결정
--모든 컴포넌트를 Docker로 격리하여 안정성을 확보하고, 리소스 제약 상황에서 효율적인 모델 선정 과정을 거쳤습니다.
+- 모델 충돌 방지
+- 문제 상황: 7개의 모델 동시 작동시 충돌 발생 위험
+- 해결 방법: 각각의 모델을 Docker Container로 패키징하여 독립적 운영
+- 피부 분석 모델들 (Skin Type, Flushing, Pores, Wrinkles)
+- 피부 결함 탐지 모델 (Skin Defect)
+- LLM 기반 모델들 (Summary, Chatbot)
+- 제한된 일정 & 리소스 최적화
+- 문제 상황: 두 모델간 성능 평가 지표의 불일치
+- 해결 방법: 제한 시간으로 인해 동일 모델 간 비교로 방향성 수정
+- Faster RCNN 대신 YOLOv5 버전들(YOLOv5s, YOLOv5l, YOLOv5m) 간의 성능 비교 진행
+- 최적의 모델 선정을 위한 효율적인 의사결정
+- 모든 컴포넌트를 Docker로 격리하여 안정성을 확보하고, 리소스 제약 상황에서 효율적인 모델 선정 과정을 거쳤습니다.
 
   <img src="https://github.com/user-attachments/assets/d604ff35-08a6-4cda-8f5e-4f59d94bdf1c" width="450">
 
