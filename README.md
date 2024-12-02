@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/fc967a36-1ac0-440c-8925-e0577f2d526a)![chatbott](https://github.com/user-attachments/assets/f0865b1b-444d-4323-8f08-cc4cf18df83e)# SeSAClinic
+# SeSAClinic
 
 <div align="center">
 AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
