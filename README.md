@@ -1,4 +1,4 @@
-# SeSAClinic
+![image](https://github.com/user-attachments/assets/fc967a36-1ac0-440c-8925-e0577f2d526a)![chatbott](https://github.com/user-attachments/assets/f0865b1b-444d-4323-8f08-cc4cf18df83e)# SeSAClinic
 
 <div align="center">
 AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
@@ -70,19 +70,83 @@ AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 ## 💫 주요 기능
 
 ### 1. 피부 분석 시스템
-![피부 분석 결과](/assets/analysis-result.png)
 - 얼굴 이미지 기반 피부 상태 분석
 - YOLOv5를 활용한 피부 문제 영역 탐지
 - VGG16, AlexNet 기반의 피부 타입 분류
+![mainpic](https://github.com/user-attachments/assets/08a5c69a-70fc-4508-a27d-8bf3a92b4b7e)
 
-### 2. AI 상담 서비스
-![챗봇 상담](/assets/chatbot-screen.png)
-- OpenAI API 기반 맞춤형 챗봇
-- RAG 시스템을 통한 정확한 정보 제공
-- FAISS를 활용한 효율적인 정보 검색
 
-### 3. 종합 분석 대시보드
-![대시보드](/assets/dashboard.png)
+### 2. 피부 분석 시스템
+- 얼굴 이미지 기반 피부 상태 분석
+- YOLOv5를 활용한 피부 문제 영역 탐지
+- VGG16, AlexNet 기반의 피부 타입 분류
+  ![analysis](https://github.com/user-attachments/assets/4db42784-4079-44e3-af6f-ad623b4b1367)
+
+
+- ### 3. 종합 분석 대시보드
 - 직관적인 분석 결과 시각화
 - 피부 상태 종합 리포트
 - 맞춤형 관리 방법 제안
+  ![Dashboard](https://github.com/user-attachments/assets/bc537ef3-df8d-452f-a67e-e94d49ee73b2)
+
+
+### 4. AI 상담 서비스
+- OpenAI API 기반 맞춤형 챗봇
+- RAG 시스템을 통한 정확한 정보 제공
+- FAISS를 활용한 효율적인 정보 검색
+  ![chatbott](https://github.com/user-attachments/assets/bf3c5d52-f0d2-418c-9b49-9d86bf9c64a2)
+  ![chatbotanswer](https://github.com/user-attachments/assets/1f68cfcf-b19d-4dac-8c85-fca26d666c4c)
+
+### 5. 모델 파이프라인
+- 7개의 독립적인 모델(React Client, FastAPI Server, 4개의 VGG16 모델, YOLOv5)이 순차적으로 작동하는 파이프라인 구조
+- 처리 과정:
+- 사용자가 React Client를 통해 피부 이미지 전송
+- FastAPI Server가 이미지를 전처리하고 각 모델에 분석 요청
+- YOLOv5(Skin Disease): 피부 질환 탐지 및 위치 식별
+- 모든 분석 결과를 FastAPI Server에서 통합하여 React Client로 전달
+- 최종적으로 사용자에게 종합적인 피부 분석 결과 제공
+- 특징:
+- 각 모델이 독립적으로 작동하여 병렬 처리 가능
+- 확장성 있는 마이크로서비스 아키텍처 구조
+- 효율적인 데이터 처리를 위한 최적화된 파이프라인 설계
+  ![ppline01](https://github.com/user-attachments/assets/2cfb0523-a566-4da1-807d-6fa70904d855)
+
+### 6. RAG 파이프라인
+- Query → Retrieve → Augment → Generate 순서로 작동
+- 사용자 질문(Query)을 Embedding하여 Vector DB에서 관련 정보 검색(Retrieve)
+- 검색된 Context와 원본 Query를 결합(Augment)하여 프롬프트 생성
+- LLM이 최종 응답(Generate)을 생성하여 사용자에게 전달
+- 정확하고 맥락에 맞는 피부 상담 답변 제공
+  ![RAGppline](https://github.com/user-attachments/assets/5781c3ec-fb19-4147-95a8-dc532df75573)
+
+
+### 7. 전체 서비스 파이프라인
+- React 프론트엔드에서 사용자 인터페이스 제공
+- FastAPI 백엔드를 통한 전체 서비스 조율
+- 두 개의 Docker 컨테이너화된 Prompt 엔진:
+- Chatbot: 사용자 상담
+- Summary: 분석 결과 요약
+- 4개의 VGG16 모델로 피부 특성 분류
+- YOLOv5로 피부 질환 위치 탐지
+- 모든 컴포넌트가 Docker로 컨테이너화되어 독립적 운영
+  ![mainppline](https://github.com/user-attachments/assets/20d75da3-9291-4443-8bdf-b14771199329)
+
+
+### 7. Trouble_Shooting(트러블슈팅)
+모델 충돌 방지
+-문제 상황: 7개의 모델 동시 작동시 충돌 발생 위험
+-해결 방법: 각각의 모델을 Docker Container로 패키징하여 독립적 운영
+-피부 분석 모델들 (Skin Type, Flushing, Pores, Wrinkles)
+-피부 결함 탐지 모델 (Skin Defect)
+-LLM 기반 모델들 (Summary, Chatbot)
+제한된 일정 & 리소스 최적화
+-문제 상황: 두 모델간 성능 평가 지표의 불일치
+-해결 방법: 제한 시간으로 인해 동일 모델 간 비교로 방향성 수정
+-Faster RCNN 대신 YOLOv5 버전들(YOLOv5s, YOLOv5l, YOLOv5m) 간의 성능 비교 진행
+-최적의 모델 선정을 위한 효율적인 의사결정
+-모든 컴포넌트를 Docker로 격리하여 안정성을 확보하고, 리소스 제약 상황에서 효율적인 모델 선정 과정을 거쳤습니다.
+ ![troubleshooting](https://github.com/user-attachments/assets/d604ff35-08a6-4cda-8f5e-4f59d94bdf1c)
+
+
+
+
