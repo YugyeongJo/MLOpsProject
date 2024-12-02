@@ -73,29 +73,39 @@ AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 - 얼굴 이미지 기반 피부 상태 분석
 - YOLOv5를 활용한 피부 문제 영역 탐지
 - VGG16, AlexNet 기반의 피부 타입 분류
-![mainpic](https://github.com/user-attachments/assets/08a5c69a-70fc-4508-a27d-8bf3a92b4b7e)
+  <div style="width: 400px">
+  ![mainpic](https://github.com/user-attachments/assets/08a5c69a-70fc-4508-a27d-8bf3a92b4b7e)
+  </div>
 
 
 ### 2. 피부 분석 시스템
 - 얼굴 이미지 기반 피부 상태 분석
 - YOLOv5를 활용한 피부 문제 영역 탐지
 - VGG16, AlexNet 기반의 피부 타입 분류
-  ![analysis](https://github.com/user-attachments/assets/4db42784-4079-44e3-af6f-ad623b4b1367)
+   <div style="width: 400px">
+   ![analysis](https://github.com/user-attachments/assets/4db42784-4079-44e3-af6f-ad623b4b1367)
+   </div>
 
 
 - ### 3. 종합 분석 대시보드
 - 직관적인 분석 결과 시각화
 - 피부 상태 종합 리포트
 - 맞춤형 관리 방법 제안
-  ![Dashboard](https://github.com/user-attachments/assets/bc537ef3-df8d-452f-a67e-e94d49ee73b2)
+   <div style="width: 400px">
+   ![Dashboard](https://github.com/user-attachments/assets/bc537ef3-df8d-452f-a67e-e94d49ee73b2)
+   </div>
 
 
 ### 4. AI 상담 서비스
 - OpenAI API 기반 맞춤형 챗봇
 - RAG 시스템을 통한 정확한 정보 제공
 - FAISS를 활용한 효율적인 정보 검색
-  ![chatbott](https://github.com/user-attachments/assets/bf3c5d52-f0d2-418c-9b49-9d86bf9c64a2)
-  ![chatbotanswer](https://github.com/user-attachments/assets/1f68cfcf-b19d-4dac-8c85-fca26d666c4c)
+   <div style="width: 400px">
+   ![chatbott](https://github.com/user-attachments/assets/bf3c5d52-f0d2-418c-9b49-9d86bf9c64a2)
+   </div>
+   <div style="width: 400px">
+   ![chatbotanswer](https://github.com/user-attachments/assets/1f68cfcf-b19d-4dac-8c85-fca26d666c4c)
+   </div>
 
 ### 5. 모델 파이프라인
 - 7개의 독립적인 모델(React Client, FastAPI Server, 4개의 VGG16 모델, YOLOv5)이 순차적으로 작동하는 파이프라인 구조
@@ -109,7 +119,9 @@ AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 - 각 모델이 독립적으로 작동하여 병렬 처리 가능
 - 확장성 있는 마이크로서비스 아키텍처 구조
 - 효율적인 데이터 처리를 위한 최적화된 파이프라인 설계
-  ![ppline01](https://github.com/user-attachments/assets/2cfb0523-a566-4da1-807d-6fa70904d855)
+   <div style="width: 400px">
+   ![ppline01](https://github.com/user-attachments/assets/2cfb0523-a566-4da1-807d-6fa70904d855)
+   </div>
 
 ### 6. RAG 파이프라인
 - Query → Retrieve → Augment → Generate 순서로 작동
@@ -117,7 +129,9 @@ AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 - 검색된 Context와 원본 Query를 결합(Augment)하여 프롬프트 생성
 - LLM이 최종 응답(Generate)을 생성하여 사용자에게 전달
 - 정확하고 맥락에 맞는 피부 상담 답변 제공
-  ![RAGppline](https://github.com/user-attachments/assets/5781c3ec-fb19-4147-95a8-dc532df75573)
+   <div style="width: 400px">
+   ![RAGppline](https://github.com/user-attachments/assets/5781c3ec-fb19-4147-95a8-dc532df75573)
+   </div>
 
 
 ### 7. 전체 서비스 파이프라인
@@ -129,7 +143,9 @@ AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 - 4개의 VGG16 모델로 피부 특성 분류
 - YOLOv5로 피부 질환 위치 탐지
 - 모든 컴포넌트가 Docker로 컨테이너화되어 독립적 운영
-  ![mainppline](https://github.com/user-attachments/assets/20d75da3-9291-4443-8bdf-b14771199329)
+   <div style="width: 400px">
+   ![mainppline](https://github.com/user-attachments/assets/20d75da3-9291-4443-8bdf-b14771199329)
+   </div>
 
 
 ### 7. Trouble_Shooting(트러블슈팅)
@@ -145,7 +161,9 @@ AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 -Faster RCNN 대신 YOLOv5 버전들(YOLOv5s, YOLOv5l, YOLOv5m) 간의 성능 비교 진행
 -최적의 모델 선정을 위한 효율적인 의사결정
 -모든 컴포넌트를 Docker로 격리하여 안정성을 확보하고, 리소스 제약 상황에서 효율적인 모델 선정 과정을 거쳤습니다.
- ![troubleshooting](https://github.com/user-attachments/assets/d604ff35-08a6-4cda-8f5e-4f59d94bdf1c)
+  <div style="width: 400px">
+  ![troubleshooting](https://github.com/user-attachments/assets/d604ff35-08a6-4cda-8f5e-4f59d94bdf1c)
+  </div>
 
 
 
