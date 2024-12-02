@@ -91,6 +91,7 @@ AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 - 직관적인 분석 결과 시각화
 - 피부 상태 종합 리포트
 - 맞춤형 관리 방법 제안
+   <img src="https://github.com/user-attachments/assets/4db42784-4079-44e3-af6f-ad623b4b1367" width="400" alt="analysis">
    <div style="width: 400px">
    ![Dashboard](https://github.com/user-attachments/assets/bc537ef3-df8d-452f-a67e-e94d49ee73b2)
    </div>
