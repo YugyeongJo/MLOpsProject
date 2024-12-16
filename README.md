@@ -1,8 +1,5 @@
 # SeSAClinic
-
-<div align="center">
-AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
-</div>
+> AI 기반 피부 분석 및 맞춤형 케어 상담 플랫폼
 
 ## 🎯 서비스 목표
 
